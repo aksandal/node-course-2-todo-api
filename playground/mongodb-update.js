@@ -8,7 +8,7 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
         return console.log('Unable to connect to mongodb');
     }
 
-    /* 
+    
         db.collection('Todos').findOneAndUpdate({ completed: false }, {
             $set: {
                 completed: true
@@ -18,7 +18,7 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
             }).then((res) => {
                 console.log(res);
             });
-     */
+    
     db.collection('Users').findOneAndUpdate({ name: 'Jen' }, {
         $set: {
             name:"Akshay"

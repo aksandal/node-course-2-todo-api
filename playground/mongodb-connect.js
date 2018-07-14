@@ -18,8 +18,8 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
     console.log('Connected to mongodb');
 
     var db = client.db('TodoApp');
-
-    /* db.collection('Todos').insertOne({
+/* 
+     db.collection('Todos').insertOne({
         text:'Something to do',
         completed:false
     },(err,res)=>{
@@ -33,7 +33,7 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
 
 
 
-    /*db.collection('Users').insertOne({
+    db.collection('Users').insertOne({
         name: "Akshay",
         age: 23,
         Location: "Mumbai"
@@ -45,7 +45,7 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
         console.log(res.ops[0]._id.getTimestamp());
         //console.log(JSON.stringify(res.ops, undefined, 2));
 
-    })*/
+    })
     client.close();
 
 
