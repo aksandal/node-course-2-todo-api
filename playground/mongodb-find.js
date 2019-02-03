@@ -9,13 +9,13 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
     }
 
 
-/*     db.collection('Todos').find({_id:new ObjectID("5b46369094864a3520c3921a")}).toArray().then((docs)=>{
+     db.collection('Todos').find({completed:true}).toArray().then((docs)=>{
         console.log('Todos');
         console.log(JSON.stringify(docs,undefined,2));
     }).catch((err)=>{
         console.log(err);
-    }) */
-
+    }) 
+ 
 
 /*     db.collection('Todos').find().count().then((count)=>{
         console.log(`total count:${count}`);
@@ -25,12 +25,12 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
     })
  */
 
-    db.collection('Users').find({name:"Akshay"}).count().then((count)=>{
+    /* db.collection('Users').find({name:"Akshay"}).count().then((count)=>{
         console.log(`total count:${count}`);
         //console.log(JSON.stringify(docs,undefined,2));
     }).catch((err)=>{
         console.log(err);
-    })
+    }) */
 
     
     //client.close();

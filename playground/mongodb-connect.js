@@ -10,15 +10,15 @@ var Users = { name: "Akshay", age: 20 };
 var { name } = Users;
 
 console.log(name);
-MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (err, client) => {
+MongoClient.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true }, (err, client) => {
     if (err) {
         return console.log('Unable to connect to mongodb');
     }
 
     console.log('Connected to mongodb');
-
+    //v3 update
     var db = client.db('TodoApp');
-/* 
+ 
      db.collection('Todos').insertOne({
         text:'Something to do',
         completed:false
@@ -29,11 +29,18 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
         console.log(JSON.stringify(res.ops,undefined,2));
         
     });
-     */
 
 
+    db.collection('Users').insertOne(Users,(err,res)=>{
+        if(err){
+            return console.log('error during insert')
+        }
+        console.log(JSON.stringify(res.ops,undefined,2))
 
-    db.collection('Users').insertOne({
+    })
+
+
+   /*  db.collection('Users').insertOne({
         name: "Akshay",
         age: 23,
         Location: "Mumbai"
@@ -45,8 +52,8 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
         console.log(res.ops[0]._id.getTimestamp());
         //console.log(JSON.stringify(res.ops, undefined, 2));
 
-    })
-    client.close();
+    }) */
+    client.close(); 
 
 
 })
