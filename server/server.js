@@ -9,7 +9,7 @@ var {Todo}=require('./model/todo');
 
 var app=express();
 
-
+//middleware to make the incoming request to json object
 app.use(bodyParser.json());
 app.get('/',(req,res)=>{
     res.send('What the hello')

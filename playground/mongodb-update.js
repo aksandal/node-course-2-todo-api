@@ -1,6 +1,6 @@
 const { MongoClient, ObjectID } = require('mongodb');
 
-MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (err, client) => {
+MongoClient.connect('mongodb://localhost:27017/TodoApps', { useNewUrlParser: true }, (err, client) => {
 
     var db = client.db('TodoApp');
 
@@ -27,10 +27,10 @@ MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true }, (er
             age: 1
         }
     }, {
-            returnOriginal: false
-        }).then((res) => {
+        returnOriginal: false
+    }).then((res) => {
             console.log(res);
-        });
+    });
 
     //client.close();
 })
