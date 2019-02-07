@@ -41,6 +41,23 @@ app.get('/todos',(req,res)=>{
 })
 
 
+
+app.get('/todos/:id',(req,res)=>{
+        var id=req.params.id
+        Todo.findById(id)
+            .then((todos)=>{
+                if(!todos){
+                    return res.status(404).send()
+                    //return console.log('no record found')
+                }
+                res.type('application/json')
+                res.send({todos})
+            })
+            .catch((err)=>{
+                res.status(404).send()
+            })
+        })
+
 app.listen(3000,()=>{
 console.log('starting at port 3000')
 })
