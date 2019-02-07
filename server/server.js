@@ -33,7 +33,7 @@ app.post('/todos',(req,res)=>{
 
 app.get('/todos',(req,res)=>{
 
-    Todo.find().then((todo)=>{
+    Todo.find({text:req.body.text}).then((todo)=>{
         res.send({todo});
     }).catch((err)=>{
         res.send({err})
