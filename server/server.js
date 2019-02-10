@@ -6,6 +6,7 @@ var {Users}=require('./model/User');
 var {mongoose}=require('./db/mongoose');
 var {Todo}=require('./model/todo');
 
+const port=process.env.PORT||3000;
 
 var app=express();
 
@@ -16,11 +17,12 @@ app.get('/',(req,res)=>{
 });
 
 app.post('/todos',(req,res)=>{
-
+    //new instance for the todo app
     var todo=new Todo({
         text:req.body.text
     });
 
+    //save it to the database
     todo.save().then((doc)=>{
         res.send(doc);
     }).catch((err)=>{
@@ -58,8 +60,8 @@ app.get('/todos/:id',(req,res)=>{
             })
         })
 
-app.listen(3000,()=>{
-console.log('starting at port 3000')
+app.listen(port,()=>{
+console.log(`starting at port ${port}`)
 })
 
 
